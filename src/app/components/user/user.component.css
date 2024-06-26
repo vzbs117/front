@@ -1,0 +1,113 @@
+.user-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.user-card {
+  width: 400px;
+  max-width: calc(100% - 20px);
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa; /* Nuevo color de fondo de la tarjeta */
+}
+
+.header {
+  background-color: #2196f3; /* Color de fondo del encabezado */
+  color: #ffffff; /* Color del texto del encabezado */
+  border-radius: 10px 10px 0 0;
+  padding: 12px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.avatar-container {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-container img,
+.avatar-container mat-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-container {
+  flex: 1;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.info-item {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333333; /* Color del texto de la información */
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.word-balance {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #555555; /* Color del texto del saldo de palabras */
+}
+
+.logout-button {
+  margin-top: 16px;
+  background-color: #f44336; /* Color de fondo del botón de logout */
+  color: #ffffff; /* Color del texto del botón de logout */
+}
+
+.logout-button:hover {
+  background-color: #d32f2f; /* Color de fondo del botón de logout al pasar el mouse */
+}
+
+.back-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #2196f3; /* Color de fondo del botón */
+  color: #ffffff; /* Color del ícono */
+  border-radius: 50%; /* Para hacer un botón circular */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.back-button:hover {
+  background-color: #0e7ae6; /* Color de fondo al pasar el mouse */
+}
+
+.avatar-img {
+  width: 200px; /* Ancho deseado para la imagen del avatar */
+  height: auto; /* Altura automática para mantener la proporción */
+  border-radius: 50%; /* Borde redondeado para hacer un círculo */
+}
+
+.avatar-icon {
+  font-size: 100px; /* Tamaño del ícono de avatar si no hay imagen */
+}

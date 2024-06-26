@@ -1,0 +1,138 @@
+/* home.component.css */
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInImage {
+  0% {
+      opacity: 0;
+      transform: scale(0.8);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+      box-shadow: 0 0 5px #ed357c;
+  }
+  50% {
+      box-shadow: 0 0 20px #ed357c;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  height: 100vh;
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+}
+
+h1,
+p {
+  animation: fadeIn 1.5s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+h1 {
+  color: #7d23c1;
+  font-size: 2.5rem;
+  font-family: Impact;
+  margin-bottom: 20px;
+  animation-delay: 0.5s;
+}
+
+p {
+  color: #19867ba7;
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  font-weight: 500;
+  animation-delay: 1s;
+}
+
+.center-content {
+  text-align: center;
+  background: linear-gradient(170deg, #f3f8f8, #fefefe);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.logo-image {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  animation: fadeInImage 1.5s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
+}
+
+button {
+  margin: 10px 0;
+}
+
+button[mat-raised-button] {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+button[mat-raised-button] mat-icon {
+  margin-right: 8px;
+}
+
+.mat-raised-button {
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button[mat-raised-button][color="primary"] {
+  background-color: #ed357c;
+  color: #ffffff;
+  margin-right: 70px;
+  animation: glow 1.5s infinite alternate;
+}
+
+button[mat-raised-button][color="primary"]:hover {
+  background-color: #ffc107;
+  transform: scale(1.05);
+}
+
+button[mat-raised-button][color="primary"] mat-icon {
+  color: #fdfdfd;
+}
+
+button[mat-raised-button][color="accent"] {
+  background-color: #a450ed;
+  color: #ffffff;
+}
+
+button[mat-raised-button][color="accent"]:hover {
+  background-color: #66e7e5;
+  transform: scale(1.05);
+}
+
+button[mat-raised-button][color="accent"] mat-icon {
+  color: #ffffff;
+}

@@ -1,0 +1,52 @@
+<div class="user-page-container">
+  <mat-card class="user-card">
+    <mat-card-header class="header">
+      <mat-card-title>User Profile</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ng-container *ngIf="user$ | async as user">
+        <div class="user-info">
+          <div class="avatar-container">
+            <img *ngIf="userData.photoURL; else defaultAvatar" [src]="userData.photoURL" alt="User Avatar">
+            <ng-template #defaultAvatar>
+              <mat-icon>account_circle</mat-icon>
+            </ng-template>
+          </div>
+          <div class="info-container">
+            <p class="info-item">Email: {{ userData.email }}</p>
+            <p class="info-item">Name: {{ userData.displayName || 'Not available' }}</p>
+            <p class="info-item">Photo URL: {{ userData.photoURL || 'Not available' }}</p>
+          </div>
+        </div>
+
+        <div *ngIf="editMode; else viewMode">
+          <div class="edit-form">
+            <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput [(ngModel)]="userData.displayName" placeholder="Enter your name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Photo URL</mat-label>
+              <input matInput [(ngModel)]="userData.photoURL" placeholder="Enter photo URL">
+            </mat-form-field>
+          </div>
+          <div class="edit-buttons">
+            <button mat-raised-button color="primary" (click)="saveChanges()">Save Changes</button>
+            <button mat-raised-button color="warn" (click)="cancelEdit()">Cancel</button>
+          </div>
+        </div>
+        <ng-template #viewMode>
+          <button mat-raised-button color="accent" (click)="toggleEditMode()">Edit Profile</button>
+        </ng-template>
+
+        <p class="word-balance">Word Balance: {{ wordBalance }}</p>
+        <button mat-raised-button color="primary" class="logout-button" (click)="logout()">Log Out</button>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Botón de retroceso -->
+  <button mat-icon-button class="back-button" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</div>

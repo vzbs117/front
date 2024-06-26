@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <img src="assets/img/pingu.png" alt="Logo" class="navbar-logo">
+  <span class="navbar-title">Speak Now</span>
+  <button mat-button routerLink="/" class="navbar-button">
+    <mat-icon>home</mat-icon> Home
+  </button>
+  <span *ngIf="isLoggedIn$ | async; else loggedOutOptions">
+    <!-- Opciones para usuario autenticado -->
+    <button mat-button routerLink="/translator" class="navbar-button">
+      <mat-icon>translate</mat-icon> Translate
+    </button>
+    <button mat-button (click)="signOut()" class="navbar-button">
+      <mat-icon>exit_to_app</mat-icon> Sign Out
+    </button>
+   
+    <button mat-button routerLink="/translations" class="navbar-button">
+      <mat-icon>history</mat-icon>Translation history
+    </button>
+  </span>
+  <ng-template #loggedOutOptions>
+      <!-- Opciones para usuario no autenticado -->
+      <button mat-button routerLink="/login" class="navbar-button">
+      <mat-icon>login</mat-icon> Log In
+    </button>
+      <button mat-button routerLink="/register" class="navbar-button">
+      <mat-icon>person_add</mat-icon> Register
+    </button>
+  </ng-template>
+</mat-toolbar>

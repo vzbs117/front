@@ -1,0 +1,28 @@
+<div class="home-container" [@fadeInOut]>
+    <!-- Aplicar la animación fadeInOut -->
+    <div *ngIf="isLoggedIn$ | async; else loggedOutContent" class="center-content">
+        <img src="assets/img/logo.jpg" alt="Logo" class="logo-image">
+        <h1>Welcome, {{ user?.displayName || user?.email.split('@')[0] || 'User' }}!</h1>
+        <p>Go and Speak Now</p>
+        <button mat-raised-button color="primary" (click)="signOut()">
+    <mat-icon>exit_to_app</mat-icon> Sign Out
+  </button>
+        <button mat-raised-button color="accent" (click)="navigateToTranslator()">
+    <mat-icon>translate</mat-icon> Translate
+  </button>
+  
+    </div>
+    <ng-template #loggedOutContent>
+        <div class="center-content">
+            <img src="assets/img/logo.jpg" alt="Logo" class="logo-image">
+            <h1>Welcome to Speak Now!</h1>
+            <p>Create an account or Log in</p>
+            <button mat-raised-button color="primary" routerLink="/login">
+      <mat-icon>login</mat-icon> Log In
+    </button>
+            <button mat-raised-button color="accent" routerLink="/register">
+      <mat-icon>person_add</mat-icon> Register
+    </button>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,40 @@
+<div class="translationlist-container">
+  <mat-card class="translationlist-card">
+      <mat-card-header class="header">
+          <mat-card-title class="title">TRANSLATION HISTORY</mat-card-title>
+          <mat-card-subtitle class="subtitle"> User: {{ user?.displayName || user?.email.split('@')[0] || 'User' }} </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+          <div class="table-container">
+              <mat-table matSort [dataSource]="translations" class="table">
+
+                  <!-- Columnas de la tabla -->
+                  <ng-container matColumnDef="sourceText">
+                      <mat-header-cell style="background-color: rgb(67, 19, 109);" *matHeaderCellDef mat-sort-header class="custom-header-cell"> Source Text </mat-header-cell>
+                      <mat-cell style="background-color: rgb(215, 181, 253); color: black; " *matCellDef="let translation" class="custom-cell"> {{ translation.sourceText }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="translatedText">
+                      <mat-header-cell style="background-color: rgb(213, 26, 120);" *matHeaderCellDef mat-sort-header class="custom-header-cell"> Translated Text </mat-header-cell>
+                      <mat-cell style="background-color: rgb(245, 139, 176); color: black;" *matCellDef="let translation" class="custom-cell"> {{ translation.translatedText }} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="actions">
+                      <mat-header-cell style="background-color: rgb(221, 138, 28);" *matHeaderCellDef class="custom-header-cell"> Actions </mat-header-cell>
+                      <mat-cell style="background-color: rgb(239, 215, 181);" *matCellDef="let translation" class="custom-cell">
+                          <button style="color: rgb(102, 16, 163);" mat-icon-button color="primary" (click)="editTranslation(translation._id)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                          <button style="color: rgb(203, 17, 17);" mat-icon-button color="warn" (click)="confirmDelete(translation._id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                      </mat-cell>
+                  </ng-container>
+
+                  <mat-header-row *matHeaderRowDef="displayedColumns" class="custom-header-row"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;" class="custom-row"></mat-row>
+              </mat-table>
+          </div>
+      </mat-card-content>
+  </mat-card>
+</div>

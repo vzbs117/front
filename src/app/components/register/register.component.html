@@ -1,0 +1,36 @@
+<div class="register-container" [@slideInAnimation]>
+  <mat-card class="register-card">
+      <mat-card-header class="header">
+          <mat-card-title>
+              <mat-icon>person_add</mat-icon> Create an Account
+          </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+              <mat-form-field appearance="outline" class="username">
+                  <mat-label style="color: rgb(49, 9, 97);">Username</mat-label>
+                  <input matInput formControlName="username" placeholder="Enter your username" style="color: black;">
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="email">
+                  <mat-label style="color: rgb(14, 130, 76);">Email</mat-label>
+                  <input matInput formControlName="email" type="email" placeholder="Enter your email" style="color: black;">
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="password">
+                  <mat-label style="color: rgb(138, 108, 17);">Password</mat-label>
+                  <input matInput formControlName="password" type="password" placeholder="Enter your password" style="color: black;">
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="confirmPassword">
+                  <mat-label style="color: rgb(202, 29, 119);">Confirm Password</mat-label>
+                  <input matInput formControlName="confirmPassword" type="password" placeholder="Confirm your password" style="color: black;">
+              </mat-form-field>
+              <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+              <button mat-raised-button color="primary" type="submit">
+          <mat-icon class="botonR">person_add</mat-icon> Register
+        </button>
+          </form>
+      </mat-card-content>
+  </mat-card>
+</div>
+<button mat-icon-button class="back-button" (click)="goBack()">
+  <mat-icon>arrow_back</mat-icon>
+</button>

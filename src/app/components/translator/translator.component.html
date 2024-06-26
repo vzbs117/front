@@ -1,0 +1,162 @@
+<div class="translator-container" [@fadeInOut]>
+
+    <mat-card class="translator-card">
+
+        <mat-card-header class="header">
+
+            <mat-card-title style="font-family: Impact; font-size: 30px; color: rgb(90, 15, 155);">ONLINE TRANSLATOR</mat-card-title>
+
+            <mat-card-subtitle style="color: rgb(248, 247, 248); border: 7px;"> Go and Speak Now ^^ </mat-card-subtitle>
+        </mat-card-header>
+
+
+        <mat-card-content>
+            <!-- Interfaz de texto -->
+
+
+
+            <div class="text-interface" *ngIf="translationMode === 'text'">
+                <div class="language-select-container">
+                    <mat-form-field class="sourceLanguage" appearance="outline">
+                        <mat-label style="color: rgb(0, 0, 0);">Source Language</mat-label>
+                        <mat-select style="color: black;" [(ngModel)]="sourceLanguage">
+                            <mat-option style="color: rgb(15, 15, 15); background-color: rgb(253, 201, 243);" *ngFor="let language of languages" [value]="language.code">{{ language.name }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <button mat-icon-button class="switch-language-button" aria-label="Switch Languages" (click)="swapLanguages()">
+            <mat-icon>sync_alt</mat-icon>
+          </button>
+                    <mat-form-field class="targetLanguage" appearance="outline">
+                        <mat-label style="color: rgb(3, 0, 6);">Target Language</mat-label>
+                        <mat-select style="color: rgb(8, 8, 8);" [(ngModel)]="targetLanguage">
+                            <mat-option style="color: rgb(15, 15, 15); background-color: rgb(201, 222, 253);" *ngFor="let language of languages" [value]="language.code">{{ language.name }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <textarea matInput class="text-input" placeholder="Enter text to translate" [(ngModel)]="textToTranslate"></textarea>
+
+                <button mat-raised-button class="translate-button" color="primary" (click)="translate()">Translate</button>
+                <!--botón para ir al Historial-->
+                <button mat-raised-button class="history" color="accent" routerLink="/translations">View History</button>
+
+
+                <!-- Botones de cambio de modo -->
+                <div class="translation-mode-container">
+                    <button mat-raised-button class="voice" color="primary" (click)="setTranslationMode('voice')">
+                  <mat-icon>mic</mat-icon> Translate speaking
+                </button>
+                </div>
+
+                <div class="output-container">
+                    <mat-card class="translated-card2">
+                        <mat-card-content>
+                            <p class="translated-label">Translated Text:</p>
+                            <p class="translated-text">{{ translatedText }}</p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+            </div>
+
+
+
+
+
+            <!-- Interfaz de voz -->
+            <div class="voice-interface" *ngIf="translationMode === 'voice'">
+
+                <mat-card class="voice-card">
+                    <mat-card-header>
+                        <mat-card-title class="voiceT">Voice Translator</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="language-select-container">
+                            <mat-form-field class="sourceLanguage2" appearance="outline">
+                                <mat-label style="color: rgb(0, 0, 0);">Source Language</mat-label>
+                                <mat-select style="color: black;" [(ngModel)]="sourceLanguage">
+                                    <mat-option style="color: rgb(15, 15, 15); background-color: rgb(253, 201, 238);" *ngFor="let language of languages" [value]="language.code">{{ language.name }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <button mat-icon-button class="switch-language-button" aria-label="Switch Languages" (click)="swapLanguages()">
+                <mat-icon>sync_alt</mat-icon>
+              </button>
+                            <mat-form-field class="targetLanguage2" appearance="outline">
+                                <mat-label style="color: rgb(0, 0, 0);">Target Language</mat-label>
+                                <mat-select style="color: rgb(8, 8, 8);" [(ngModel)]="targetLanguage">
+                                    <mat-option style="color: rgb(15, 15, 15); background-color: rgb(253, 238, 201);" *ngFor="let language of languages" [value]="language.code">{{ language.name }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+
+                        </div>
+
+                        <!-- Cuenta regresiva antes de iniciar la grabación -->
+                        <div *ngIf="countdown > 0" class="countdown-timer">
+                            Empieza a hablar en: {{ countdown }} segundos
+                        </div>
+
+                        <!-- Botones de cambio de modo -->
+                        <div class="translation-mode-container">
+                            <button mat-raised-button class="text" color="primary" (click)="setTranslationMode('text')">
+      <mat-icon>text_format</mat-icon> Translate writing
+    </button> </div>
+                        <!--botón para ir al Historial-->
+                        <button mat-raised-button class="history2" color="accent" routerLink="/translations">View History</button>
+
+
+                    </mat-card-content>
+                </mat-card>
+
+                <div class="voice-buttons">
+                    <button mat-icon-button class="record-button" color="primary" aria-label="Record" (click)="startCountdownAndRecording()">
+                    <mat-icon [ngClass]="{'listening-icon': listening}">{{ listening ? 'more_horiz' : 'mic' }}</mat-icon>
+                    <span class="listening" *ngIf="listening"></span>
+                  </button>
+
+
+                    <button mat-icon-button class="stop-button" color="primary" aria-label="Stop" (click)="stopRecording()">
+            <mat-icon>stop</mat-icon>
+          </button>
+                    <button mat-icon-button class="clear-button" color="primary" aria-label="Clear" (click)="clearText()">
+            <mat-icon>clear</mat-icon>
+          </button>
+                </div>
+
+                <div class="output-container">
+                    <mat-card class="translated-card3">
+                        <mat-card-content>
+
+                            <p>Recorded Voice:</p>
+                            <p>{{ textToTranslate }}</p>
+                            <!-- Mostrar el texto reconocido aquí -->
+
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <!--<div class="voice-result" *ngIf="textToTranslate">
+                    <p class="result-label">Voice Recognition Result:</p>
+                    <p class="result-text">{{ textToTranslate }}</p>
+                </div> -->
+
+
+                <div class="output-container">
+                    <mat-card class="translated-card">
+                        <mat-card-content>
+                            <p class="translated-label">Translated Text:</p>
+                            <p class="translated-text">{{ translatedText }}</p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+
+
+
+
+
+        </mat-card-content>
+    </mat-card>
+
+
+
+
+</div>

@@ -1,0 +1,22 @@
+/* Estilos del pie de página y el navbar */
+.footer {
+    position: fixed; /* Fijar el pie de página en la parte inferior de la ventana */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent; /* Fondo semi-transparente */
+    color: white; /* Color del texto */
+    text-align: center; /* Centrar el contenido del pie de página */
+    padding: 10px 0; /* Espaciado interno */
+    z-index: 9999; /* Asegurar que esté por encima de otros elementos */
+}
+
+/* Estilos para los enlaces en el pie de página */
+.footer a {
+    color: white; /* Color del enlace */
+    text-decoration: none; /* Quitar subrayado */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}

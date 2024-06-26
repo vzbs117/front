@@ -1,0 +1,115 @@
+.login-container {
+  width: 700px;
+  border-radius: 22px;
+  border: 5px solid #70f879;
+  /* Borde inicial */
+  padding: 20px;
+  animation: border-color-change 1s infinite alternate;
+  /* Animación de cambio de color */
+  margin-top: 70px;
+  margin-left: 25%;
+}
+
+@keyframes border-color-change {
+  0% {
+      border-color: #cfac3a;
+      /* Color de borde inicial */
+  }
+  50% {
+      border-color: #40e3e6;
+      /* Color de borde intermedio */
+  }
+  100% {
+      border-color: #c09bfc;
+      /* Color de borde final */
+  }
+}
+
+.error-message {
+  color: rgb(202, 21, 63);
+  margin-top: 10px;
+  text-align: center;
+}
+
+.back-button {
+  position: absolute;
+  bottom: 70px;
+  left: 20px;
+  color: #fefdff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #22e5ec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #f3f2f4;
+  margin-left: 70px;
+}
+
+.back-button:hover {
+  background-color: #cf70f8;
+}
+
+
+/* Estilos específicos para email y password */
+
+.email-field {
+  width: 70%;
+  margin-bottom: 7px;
+  margin-left: 110px;
+  margin-top: 17px;
+  background-color: #efdfb8;
+  height: 55px;
+  margin-bottom: 30px;
+}
+
+button[mat-raised-button][color="accent"] mat-icon {
+  color: #ffffff;
+}
+
+.password-field {
+  width: 70%;
+  margin-bottom: 7px;
+  margin-left: 110px;
+  background-color: #b8efd7;
+  height: 55px;
+}
+
+
+/* Estilos para los botones */
+
+button {
+  margin: 10px 0;
+}
+
+button[mat-raised-button] {
+  font-size: 1rem;
+  padding: 10px 20px;
+  width: 50%;
+  margin-left: 170px;
+}
+
+
+
+button[mat-raised-button][color="primary"] {
+  background-color: #e91e63;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+button[mat-raised-button][color="primary"]:hover {
+  background-color: #1bd2d8;
+}
+
+
+
+button[mat-raised-button][color="accent"] {
+  background-color: #9c27b0;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+button[mat-raised-button][color="accent"]:hover {
+  background-color: #e8c63e;
+}

@@ -1,0 +1,282 @@
+.translator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(-45deg, #8352ee, #e73c9a, #23a6d5, #35f9cc, #bd84f9, #fff);
+  background-size: 400% 400%;
+  animation: gradientBackground 7s ease infinite;
+  height: 77vh;
+  /* Asegura que el fondo cubra toda la pantalla */
+}
+
+.translator-card {
+  width: 700px;
+  height: 470px;
+  background-color: rgba(255, 255, 255, 0.416);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 7px;
+  backdrop-filter: blur(10px);
+  /* Añade un efecto de desenfoque */
+}
+
+.voice-card {
+  width: 627px;
+  height: 137px;
+  background-color: rgba(179, 125, 245, 0.416);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: -10px;
+}
+
+
+/* Anima el fondo con un gradiente cambiante */
+
+@keyframes gradientBackground {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.language-select-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sourceLanguage {
+  background-color: #b2bef9;
+  height: 55px;
+  border-radius: 4px;
+}
+
+.targetLanguage {
+  background-color: #deaff7;
+  height: 55px;
+  border-radius: 4px;
+}
+
+.text-input {
+  resize: none;
+  width: 605px;
+  height: 60px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #6112b5;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.switch-language-button {
+  margin: 0 8px;
+  background-color: transparent;
+  border: none;
+  color: #ff0088;
+}
+
+
+/*RECORDED VOICE CONTAINER*/
+
+.translated-card3 {
+  background-color: #faf6f69c;
+  border-radius: 5px;
+  border: 1px solid #591182;
+  border-width: 2px;
+  margin-top: 20px;
+  width: 270px;
+  height: 140px;
+  margin-left: 0px;
+}
+
+
+/*RESULT VOICE CONTAINER*/
+
+.translated-card {
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #591182;
+  border-width: 2px;
+  margin-top: -140px;
+  width: 270px;
+  height: 140px;
+  margin-left: 357px;
+}
+
+
+/*TEXTO*/
+
+.translated-card2 {
+  background-color: #f9fbf8;
+  border-radius: 5px;
+  border: 1px solid #591182;
+  border-width: 2px;
+  margin-top: 2px;
+  padding: 22px;
+}
+
+.header {
+  margin-bottom: 20px;
+  margin-left: 207px;
+  margin-right: 170px;
+  text-align: center;
+  margin-top: -13px;
+}
+
+
+/* Estilos generales para los botones */
+
+.translation-mode-container button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+
+/* Estilos específicos para el botón de texto */
+
+.translation-mode-container .text {
+  background-color: #7014a6;
+  color: #fff;
+  border: 2px solid #f3dff8;
+  margin-bottom: -577px;
+  margin-left: 180px;
+}
+
+.translation-mode-container .text:hover {
+  background-color: #54e9d2;
+  color: #181717;
+}
+
+
+/* Estilos específicos para el botón de voz */
+
+.translation-mode-container .voice {
+  background-color: #7014a6;
+  color: #fff;
+  border: 2px solid #f3dff8;
+  margin-bottom: -370px;
+  margin-left: 197px;
+}
+
+.translation-mode-container .voice:hover {
+  background-color: #54e9d2;
+  color: #181717;
+}
+
+.translate-button {
+  margin-top: 17px;
+  margin-left: 267px;
+  background-color: #d62d92;
+}
+
+.translate-button:hover {
+  background-color: #54e9d2;
+  color: #181717;
+}
+
+.translate-button2:hover {
+  background-color: #54e9d2;
+  color: #181717;
+}
+
+.sourceLanguage2 {
+  background-color: #f5e8c0;
+  height: 55px;
+  border-radius: 4px;
+  margin-top: 7px;
+}
+
+.targetLanguage2 {
+  background-color: #f0a8cf;
+  height: 55px;
+  border-radius: 4px;
+  margin-top: 7px;
+}
+
+.voiceT {
+  margin-top: -30px;
+  margin-left: 207px;
+}
+
+
+/*CONTADOR*/
+
+.countdown-timer {
+  color: #101010;
+}
+
+.listening-icon {
+  color: #ffffff;
+  /* El color que deseas para el micrófono cuando está escuchando */
+}
+
+.record-button {
+  color: #ffffff;
+  background-color: #d40f7c;
+  margin-top: 13px;
+  margin-right: 13px;
+}
+
+.record-button:hover {
+  color: #ffffff;
+  background-color: #f7df09;
+}
+
+.clear-button {
+  color: #ffffff;
+  background-color: #6112b5;
+  margin-right: 13px;
+}
+
+.clear-button:hover {
+  color: #ffffff;
+  background-color: #f80303;
+}
+
+.stop-button {
+  color: #ffffff;
+  background-color: #1964e6;
+  margin-right: 13px;
+}
+
+.stop-button:hover {
+  color: #ffffff;
+  background-color: #f79101;
+}
+
+.voice-buttons {
+  margin-left: 230px;
+}
+
+.history {
+  background-color: #0b449357;
+  color: #ffff;
+  margin-top: -477px;
+  margin-left: 130px;
+}
+
+.history:hover {
+  background-color: #a561f3;
+  color: #ffff;
+}
+
+.history2 {
+  background-color: #0b449357;
+  color: #ffff;
+  margin-top: -390px;
+  margin-left: 462px;
+  width: 130px;
+}
+
+.history2:hover {
+  background-color: #f361c7;
+  color: #ffff;
+}

@@ -1,0 +1,26 @@
+/* navbar.component.css */
+
+.mat-toolbar {
+  background-color: transparent; /* Fondo transparente */
+  box-shadow: none; /* Quita la sombra */
+}
+
+.navbar-title {
+  color: white; /* Color del texto del título */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-button {
+  color: white; /* Color del texto de los botones */
+  margin-left: 8px;
+}
+
+.navbar-button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Cambia el color de fondo al pasar el mouse */
+}
+.navbar-logo {
+  width: 60px; /* Ancho deseado */
+  height: auto; /* Altura automática para mantener la proporción */
+  margin-right: 8px; /* Ajusta el margen derecho según sea necesario */
+}

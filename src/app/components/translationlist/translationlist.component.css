@@ -1,0 +1,68 @@
+.translationlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(-45deg, #8352ee, #e73c9a, #23a6d5, #35f9cc, #bd84f9, #fff);
+  background-size: 400% 400%;
+  animation: gradientBackground 7s ease infinite;
+  height: 77vh;
+}
+
+@keyframes gradientBackground {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.translationlist-card {
+  width: 1200px;
+  height: 470px;
+  background-color: rgba(255, 255, 255, 0.416);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 7px;
+  backdrop-filter: blur(10px);
+}
+
+.header {
+  padding: 12px;
+}
+
+.title {
+  color: #3f0da2;
+  font-family: Impact;
+  font-size: 30px;
+  width: 100%;
+  margin-left: 430px;
+}
+
+.subtitle {
+  color: rgb(255, 255, 255);
+  background-color: #c11d8589;
+  height: 20px;
+  width: 170px;
+  text-align: center;
+  border-radius: 22px;
+  margin-left: 2px;
+}
+
+.custom-content {
+  padding: 20px;
+}
+
+.table-container {
+  max-height: 322px;
+  overflow-y: auto;
+  border-radius: 7px;
+}
+
+.table {
+  width: 100%;
+}

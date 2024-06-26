@@ -1,0 +1,73 @@
+<div class="edit-translation-container">
+  <div class="form-container">
+    <h2  style="font-family: Impact; font-size: 30px; color: rgb(90, 15, 155);" class="mat-h2">Edit Translation</h2>
+    <form (ngSubmit)="updateTranslation()" #translationForm="ngForm" class="form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label style="color: black;">Source Text</mat-label>
+        <input style="color: black;"
+          matInput 
+          id="sourceText" 
+          [(ngModel)]="translation.sourceText" 
+          name="sourceText" 
+          required
+          #sourceText="ngModel">
+        <mat-error *ngIf="sourceText.invalid && (sourceText.dirty || sourceText.touched)">
+          Source Text is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="translated">
+        <mat-label style="color: black;">Translated Text</mat-label>
+        <textarea style="color: black;"
+          matInput 
+          id="translatedText" 
+          [(ngModel)]="translation.translatedText" 
+          name="translatedText" 
+          required
+          #translatedText="ngModel">
+        </textarea>
+        <mat-error *ngIf="translatedText.invalid && (translatedText.dirty || translatedText.touched)">
+          Translated Text is required.
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="source">
+          <mat-label style="color: black;">Select Source Language</mat-label>
+          <mat-select style="color: black;"
+            id="sourceLanguage" 
+            [(ngModel)]="translation.sourceLanguage" 
+            name="sourceLanguage" 
+            required
+            #sourceLanguage="ngModel">
+            <mat-option  style="color: rgb(15, 15, 15); background-color: rgb(220, 201, 253);"*ngFor="let lang of languageOptions" [value]="lang.code">{{ lang.name }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="sourceLanguage.invalid && (sourceLanguage.dirty || sourceLanguage.touched)">
+            Source Language is required.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label style="color: black;">Select Target Language</mat-label>
+          <mat-select style="color: black;"
+            id="targetLanguage" 
+            [(ngModel)]="translation.targetLanguage" 
+            name="targetLanguage" 
+            required
+            #targetLanguage="ngModel">
+            <mat-option style="color: rgb(15, 15, 15); background-color: rgb(214, 175, 244);" *ngFor="let lang of languageOptions" [value]="lang.code">{{ lang.name }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="targetLanguage.invalid && (targetLanguage.dirty || targetLanguage.touched)">
+            Target Language is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" mat-raised-button color="primary" [disabled]="translationForm.invalid">Save</button>
+        <button style="background-color:rgb(198, 11, 11); color: white;" type="button" mat-button (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+    <div *ngIf="message" class="message">{{ message }}</div>
+  </div>
+</div>
